@@ -35,10 +35,14 @@ SOFTWARE.
 
 #if defined(__GNUC__) && !defined(__clang__) && !defined(__llvm__)
   #pragma GCC diagnostic push 
+#if (__GNUC__ >= 7)
   #pragma GCC diagnostic ignored "-Wnull-dereference"
+#endif
 #endif
 
 #if defined(__clang__) || defined(__llvm__)
   #pragma clang diagnostic push 
+#if (__clang_major__ > 3) || (__clang_major__ >= 3 && __clang_minor__ >= 8)
   #pragma clang diagnostic ignored "-Wnull-dereference"
+#endif
 #endif
