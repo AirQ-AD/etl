@@ -310,6 +310,10 @@ namespace etl
 
     virtual fsm_state_id_t on_enter_state() { return No_State_Change; } // By default, do nothing.
     virtual void on_exit_state() {}  // By default, do nothing.
+    etl::fsm_state_id_t on_event_unknown(const etl::imessage&)
+    {
+        return No_State_Change;
+    }
 
     //*******************************************
     void set_fsm_context(etl::fsm& context)
@@ -590,7 +594,7 @@ namespace etl
     };
 
     //********************************************
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
 
@@ -660,7 +664,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -722,7 +726,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -783,7 +787,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -843,7 +847,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -901,7 +905,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -958,7 +962,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1014,7 +1018,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1069,7 +1073,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1122,7 +1126,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1174,7 +1178,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1225,7 +1229,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1275,7 +1279,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1323,7 +1327,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1370,7 +1374,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1416,7 +1420,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1461,7 +1465,7 @@ namespace etl
 
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       etl::fsm_state_id_t new_state_id;
       etl::message_id_t event_id = message.get_message_id();
@@ -1503,7 +1507,7 @@ namespace etl
     }
   private:
 
-    etl::fsm_state_id_t process_event(const etl::imessage& message)
+    etl::fsm_state_id_t process_event(const etl::imessage& message) override
     {
       return p_parent ? p_parent->process_event(message) : static_cast<TDerived*>(this)->on_event_unknown(message);
     }
