@@ -310,6 +310,10 @@ namespace etl
 
     virtual fsm_state_id_t on_enter_state() { return No_State_Change; } // By default, do nothing.
     virtual void on_exit_state() {}  // By default, do nothing.
+    fsm_state_id_t on_event_unknown(const etl::imessage&)
+    {
+      return No_State_Change;
+    }
 
     //*******************************************
     void set_fsm_context(etl::fsm& context)
