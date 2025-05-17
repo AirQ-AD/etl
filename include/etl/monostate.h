@@ -1,3 +1,5 @@
+///\file
+
 /******************************************************************************
 The MIT License(MIT)
 
@@ -5,7 +7,7 @@ Embedded Template Library.
 https://github.com/ETLCPP/etl
 https://www.etlcpp.com
 
-Copyright(c) 2021 John Wellbelove
+Copyright(c) 2025 jwellbelove
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files(the "Software"), to deal
@@ -26,47 +28,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ******************************************************************************/
 
-#ifndef ETL_NTH_TYPE_INCLUDED
-#define ETL_NTH_TYPE_INCLUDED
+#ifndef ETL_MONOSTATE_INCLUDED
+#define ETL_MONOSTATE_INCLUDED
 
 #include "platform.h"
-#include "static_assert.h"
 
-#if ETL_NOT_USING_CPP11
-  #if !defined(ETL_IN_UNIT_TEST)
-    #error NOT SUPPORTED FOR C++03 OR BELOW
-  #endif
-#else
 namespace etl
 {
-  namespace private_nth_type
+  //***************************************************************************
+  /// A 'no-value' placeholder.
+  //***************************************************************************
+  struct monostate
   {
-    //***********************************
-    template <size_t N, typename T1, typename... TRest>
-    struct nth_type_helper
-    {
-      using type = typename nth_type_helper<N - 1U, TRest...>::type;
-    };
-
-    template <typename T1, typename... TRest>
-    struct nth_type_helper<0U, T1, TRest...>
-    {
-      using type = T1;
-    };
-  }
-
-  //***********************************
-  template <size_t N, typename... TTypes>
-  struct nth_type
-  {
-    ETL_STATIC_ASSERT(N < sizeof...(TTypes), "etl::nth_type index 'N' out of bounds");
-
-    using type = typename private_nth_type::nth_type_helper<N, TTypes...>::type;
   };
-
-  //***********************************
-  template <size_t N, typename... TTypes>
-  using nth_type_t = typename nth_type<N, TTypes...>::type;
 }
-#endif
+
 #endif
