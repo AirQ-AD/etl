@@ -6,7 +6,8 @@ cmake_minimum_required(VERSION 3.10)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/helpers.cmake)
 
 set(MSG_PREFIX "etl |")
-etl_determine_version_with_git(${GIT_DIR_LOOKUP_POLICY})
+# NOTE: note used because we do not use the semantic versioning
+# determine_version_with_git(${GIT_DIR_LOOKUP_POLICY})
 if(NOT ETL_VERSION)
     etl_determine_version_with_file("version.txt")
 endif()
